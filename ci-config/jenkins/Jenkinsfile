@@ -74,7 +74,7 @@ pipeline {
 
         stage('Unit Test') {
           steps {
-            sh "./node_modules/nyc/bin/nyc.js --reporter=html --reporter=text ./node_modules/mocha/bin/_mocha ./test/unit"
+            sh "./node_modules/nyc/bin/nyc.js --reporter=html --reporter=text ./node_modules/mocha/bin/_mocha --timeout 5000 ./test/unit"
 
             publishHTML(target: [
               allowMissing: false,
